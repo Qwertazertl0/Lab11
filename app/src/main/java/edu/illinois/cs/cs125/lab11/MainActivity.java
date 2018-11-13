@@ -3,6 +3,7 @@ package edu.illinois.cs.cs125.lab11;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,12 +33,19 @@ public final class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         // Set up the queue for our API requests
         requestQueue = Volley.newRequestQueue(this);
 
-        setContentView(R.layout.activity_main);
+        startAPICall("192.17.96.8");
+    }
 
+    /**
+     * @param unused somthing
+     */
+    public void search(final View unused) {
+        Log.d(TAG, "Button clicked.");
         startAPICall("192.17.96.8");
     }
 
